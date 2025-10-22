@@ -96,7 +96,7 @@ class SingleLinkedList:
 
     def removeElement(self, val):
         prev = self.head
-        current = self.head.next
+        current = self.head
         while current:
             if current.data == val:
                 prev.next = current.next
@@ -109,18 +109,19 @@ class SingleLinkedList:
 
 sll = SingleLinkedList()
 
+sll.insert(1)
 sll.insert(2)
-sll.insert(2)
-sll.insert(2)
-sll.insert(2)
-sll.insert(2)
-sll.insert(2)
+sll.insert(6)
+sll.insert(3)
+sll.insert(4)
+sll.insert(5)
+sll.insert(6)
 
 sll.print()  
 print("\n")
 print("Size fo Linked List: ", sll.size())
 #sll.delete()\
 #sll.RemoveDuplicate()
-sll.removeElement(2)
+sll.removeElement(6)
 print("\n")
 sll.print()  
