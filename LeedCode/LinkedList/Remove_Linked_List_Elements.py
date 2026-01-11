@@ -1,54 +1,25 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+# Definition for singly-linked list.
+class ListNode:
+     def __init__(self, val=0, next=None):
+         self.val = val
+         self.next = next
+class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        if not head:
+            return None
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+        while head and head.val == val:
+            head = head.next
 
-    def insert(self):
-        data = input()
-        while data != -1:
-            newnode = Node(data)
-            if not self.head:
-                self.head = newnode
-                return 
-
-            temp = self.head
-            while temp.next:
-                temp = temp.next
-
-            temp.next = newnode
-            data = input()
-
-    def print(self):
-        temp = self.head
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next 
-
-    def remove(self, val):
-        if not self.head:
-            return 
-        while self.head and self.head.data == val:
-            self.head = self.head.next
-        prev = self.head
-        current = self.head
+        prev = head
+        current = head
+        
         while current:
-            if current.data == val:
+            if current.val == val:
                 prev.next = current.next
                 current = current.next
             else:
                 prev = current
                 current = current.next
-
-
-
-sll = LinkedList()
-sll.insert()
-sll.print()
-n = int(input("\nEnter number that you want to remove from linkedlist: \n"))
-sll.remove(n)
-
-sll.print()
+        return head
+        
